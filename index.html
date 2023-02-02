@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    
+    <title>Horloge Numérique</title>
+</head>
+<body onload="horloge()">
+    <div class="box">
+        <div class="heur"></div>
+        <div class="date"></div>
+    </div>
+
+    <script >
+        function horloge (){
+    let d= new Date()
+    console.log(d)
+    let h= d.getHours()
+    let m= d.getMinutes()
+    let s= d.getSeconds()
+    let j= d.getDay()
+    let r = d.getDate()
+    let mois= d.getMonth()
+    let an=d.getFullYear()
+    const days = ["dimanche","lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi"];
+    console.log(j)
+if(h<10){
+    h="0"+h
+}
+if(m<10){
+    m="0"+m
+}
+if(s<10){
+    s="0"+s
+}
+if(mois<10){
+    mois="0"+mois
+}
+let heur= h+":"+m+":"+s
+document.getElementsByClassName('heur')[0].innerHTML=heur;
+let date=days[j] + " - " + r + "/ " + mois + "/" + an
+
+document.getElementsByClassName("date")[0].innerHTML=date
+setTimeout("horloge()",1000)
+}
+    </script>
+</body>
+</html>
+
+
+
+
